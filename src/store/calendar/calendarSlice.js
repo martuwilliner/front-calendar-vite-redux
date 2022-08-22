@@ -12,4 +12,4 @@ export const calendarSlice = createSlice({
     }
 });
 
-export const { increment } = calendarSlice.actions;
+export const {increment} = calendarSlice.actions;
