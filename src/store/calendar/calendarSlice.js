@@ -14,5 +14,3 @@ export const calendarSlice = createSlice({
 
 export const {increment} = calendarSlice.actions;
 
-export const selectCounter = state => state.calendar.counter; //! BORRAR ESTO
-
