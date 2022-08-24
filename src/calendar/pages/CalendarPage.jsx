@@ -7,27 +7,13 @@ import { Navbar, CalendarEvent, CalendarModal } from "../"
 
 import {addHours} from 'date-fns'
 import { getMessages, localizer } from '../../helpers'
-import { useUiStore } from '../../hooks'
+import { useUiStore, useCalendarStore} from '../../hooks'
 
-
-
-const events = [{
-  title: 'Entrega Proyecto',
-  notes: ' Entrega Proyecto si o si',
-  start: new Date(),
-  end: addHours(new Date(), 2),
-  bgColor: '#fafafa',
-  user: {
-    _id: '123',
-    name: 'Martin'
-  }
-}]
 
 export const CalendarPage = () => {
 
   const { openDateModal } = useUiStore()
-
-
+  const { events, setActiveEvent } = useCalendarStore()
 
   const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'month')
 
@@ -52,7 +38,8 @@ export const CalendarPage = () => {
   }
 
   const onSelectEvent = (event) => {
-    console.log({click: event})
+    /* console.log({click: event}) */
+    setActiveEvent(event) // se setea el evento seleccionado para que se muestre en el modal
   }
 
   const onViewChanged = (event) => {
